@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +10,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  logo = 'http://assets.stickpng.com/images/5847ea22cef1014c0b5e4833.png'
-  
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
-  }
-
-  ingresar() {
-    this.router.navigateByUrl('/dashboard');
   }
 
 }
