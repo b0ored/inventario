@@ -17,3 +17,11 @@
   .ancho {
     width: 80%;
   }
+
+  .button {
+    height: 50px;
+  }
+
+  .spinner {
+    margin: 0 auto;
+  }

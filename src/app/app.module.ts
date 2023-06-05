@@ -1,24 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { SharedModule } from './components/shared/shared.module';
 
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { LectorComponent } from './components/lector/lector.component';
+//Components
 import { LoginComponent } from './components/login/login.component';
-
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatButtonModule} from '@angular/material/button';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [AppComponent, LectorComponent, LoginComponent],
-  imports: [BrowserModule, ZXingScannerModule, MatFormFieldModule, BrowserAnimationsModule, MatButtonModule, MatDividerModule, MatIconModule],
+  declarations: [AppComponent, LoginComponent],
+  imports: [BrowserModule, SharedModule, BrowserAnimationsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
