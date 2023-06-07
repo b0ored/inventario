@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import {HttpClientModule } from '@angular/common/http';
+import {RouterModule} from '@angular/router';
 
 //Angular
 import {MatIconModule} from '@angular/material/icon';
@@ -14,13 +15,15 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
+import { LectorComponent } from './components/lector/lector.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [LectorComponent, NavbarComponent],
   imports: [
     CommonModule, 
     ZXingScannerModule, 
@@ -34,10 +37,12 @@ import {MatTableModule} from '@angular/material/table';
     ReactiveFormsModule,
     MatToolbarModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    RouterModule
   ],
   exports: [
-    ZXingScannerModule, 
+    LectorComponent, 
+    NavbarComponent,
     MatInputModule, 
     MatFormFieldModule,
     MatButtonModule, 
@@ -48,7 +53,7 @@ import {MatTableModule} from '@angular/material/table';
     ReactiveFormsModule,
     MatToolbarModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
   ]
 })
 export class SharedModule { }

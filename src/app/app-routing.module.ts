@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
+import { InventarioComponent } from './modules/inventario/inventario.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'dashboard', loadChildren: () => import('./components/dashboard/dashboard.module').then(x => x.DashboardModule) },
-  { path: '**', redirectTo: '/login', pathMatch: 'full' }
+  {
+    path: 'login',
+    loadChildren: () => import('./modules/login/login.module').then (m => m.LoginModule)
+  },
+  {
+    path: 'inventario',
+    component: InventarioComponent,
+    loadChildren: () => import('./modules/inventario/inventario.module').then (m => m.InventarioModule)
+  }
 ];
   
 

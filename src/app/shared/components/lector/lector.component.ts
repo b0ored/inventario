@@ -1,29 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ScannerService } from '../../services/scanner.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lector',
   templateUrl: './lector.component.html',
   styleUrls: ['./lector.component.css']
 })
+
+
 export class LectorComponent implements OnInit {
 
   public cameras:MediaDeviceInfo[]=[];
   public myDevice!: MediaDeviceInfo;
   public scannerEnabled=false;
   public results:string[]=[];
-
-  constructor() {
-   /*  navigator.mediaDevices.enumerateDevices().then((devices) => {
-      for (var i = 0; i < devices.length; i++) {
-        var device = devices[i];
-        if (device.kind === 'videoinput') {
-          console.log(device);
-          this.myDevice = devices[1];          
-        }
-      }
-      console.log(this.myDevice);
-    }); */
-  }
+  @Input() route: string = '';
+  constructor(private _scannerService: ScannerService, private _router: Router) { }
 
   ngOnInit(): void {
   }
@@ -36,6 +29,10 @@ export class LectorComponent implements OnInit {
   scanSuccessHandler(event:string){
     console.log(event);
     this.results.unshift(event);
+    console.log(event);
+    
+    this.scannCode(event);
+    this._router.navigateByUrl(this.route)
   }
 
   selectCamera(cameraLabel: string){    
@@ -49,4 +46,8 @@ export class LectorComponent implements OnInit {
   }
   
 
+  scannCode(code: string) : void {
+    this._scannerService.scannCode(code);
+  }
+  
 }

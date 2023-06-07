@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
   }
 
   ingresar(): void {
-    console.log(this.formu);
     const usuario = this.formu.value.usuario;
     const password = this.formu.value.password;
 
@@ -48,7 +47,7 @@ export class LoginComponent implements OnInit {
   entrar(): void {
     this.loading = true;
     setTimeout(() => {
-      this._router.navigateByUrl('/dashboard');
+      this._router.navigateByUrl('/inicio');
     }, 1500);
   }
 }
